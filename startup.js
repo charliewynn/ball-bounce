@@ -42,22 +42,31 @@ function startup() {
 
     c.clearRect(0, 0, canvas.width, canvas.height);
     drawRect(c, 0, 0, canvas.width, canvas.height, blackFill);
-    drawCirc(c, circLoc, circSize, purpleFill);
+    drawCirc(c, circLoc, circSize, ballColors[ballColor]);
   }
 
+  let ballColor = 0;
   function calcCirc() {
     let newCirc = { x: circLoc.x + circDir.x, y: circLoc.y + circDir.y };
+    let bounced = false;
     if (newCirc.x + circSize > right) {
       circDir.x = circDir.x * -1;
+      bounced = true;
     }
     if (newCirc.x - circSize < left) {
       circDir.x = circDir.x * -1;
+      bounced = true;
     }
     if (newCirc.y + circSize > bottom) {
       circDir.y = circDir.y * -1;
+      bounced = true;
     }
     if (newCirc.y - circSize < top) {
       circDir.y = circDir.y * -1;
+      bounced = true;
+    }
+    if (bounced) {
+      ballColor = (ballColor + 1) % ballColors.length;
     }
     circLoc = newCirc;
   }
@@ -84,4 +93,12 @@ function startup() {
   var blackFill = "rgba(0,0,0,1)";
   var brownFill = "rgba(139,69,19,1)";
   var purpleFill = "rgba(170,0,255,1)";
+  const ballColors = [
+    purpleFill,
+    redFill,
+    blueFill,
+    greenFill,
+    orangeFill,
+    brownFill
+  ];
 }
