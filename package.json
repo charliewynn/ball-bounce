@@ -1,0 +1,42 @@
+{
+  "name": "ball-bounce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "startup.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages-deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charliewynn/ball-bounce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charliewynn/ball-bounce/issues"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist"
+  },
+  "homepage": "https://github.com/charliewynn/ball-bounce#readme",
+  "dependencies": {
+    "gh-pages-deploy": "^0.5.1",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "path": "^0.12.7",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
+  }
+}
